@@ -353,7 +353,185 @@ g++ -std=c++11 main.cpp -o audio_system -lm
 
 ---
 
-## 📁 Cấu Trúc File
+## � Hướng Dẫn Chạy Dự Án
+
+### **Phương pháp 1: Dùng lệnh g++ trực tiếp**
+
+#### Trên Linux/MacOS:
+
+```bash
+cd /path/to/Project1
+g++ -std=c++11 main.cpp -o audio_system -lm
+./audio_system
+```
+
+#### Trên Windows (PowerShell):
+
+```powershell
+cd C:\path\to\Project1
+g++ -std=c++11 main.cpp -o audio_system.exe -lm
+.\audio_system.exe
+```
+
+#### Trên Windows (Command Prompt):
+
+```cmd
+cd C:\path\to\Project1
+g++ -std=c++11 main.cpp -o audio_system.exe -lm
+audio_system.exe
+```
+
+---
+
+### **Phương pháp 2: Dùng Makefile**
+
+```bash
+cd /path/to/Project1
+make              # Biên dịch
+make run          # Chạy chương trình
+make clean        # Xoá file biên dịch
+```
+
+---
+
+### **Phương pháp 3: Dùng Compiler MSVC (Windows)**
+
+```bash
+cl /std:c++17 main.cpp /link
+audio_system.exe
+```
+
+---
+
+### **Phương pháp 4: Dùng Clang**
+
+```bash
+clang++ -std=c++11 main.cpp -o audio_system -lm
+./audio_system
+```
+
+---
+
+## 📋 Các Bước Chạy Chi Tiết
+
+### **Bước 1: Kiểm tra phiên bản Compiler**
+
+```bash
+# Kiểm tra GCC
+g++ --version
+
+# Kiểm tra Clang
+clang++ --version
+
+# Kiểm tra MSVC
+cl.exe /?
+```
+
+### **Bước 2: Điều hướng đến folder dự án**
+
+```bash
+cd F:\.vscode\Project1
+```
+
+### **Bước 3: Biên dịch mã nguồn**
+
+```bash
+g++ -std=c++11 main.cpp -o audio_system -lm
+```
+
+**Giải thích các flag:**
+
+- `-std=c++11` - Sử dụng tiêu chuẩn C++11
+- `main.cpp` - File nguồn
+- `-o audio_system` - Tên file output
+- `-lm` - Link thư viện Math (libm)
+
+### **Bước 4: Chạy chương trình**
+
+```bash
+./audio_system        # Linux/MacOS
+audio_system.exe      # Windows
+```
+
+---
+
+## ✅ Output Mong Đợi
+
+Khi chạy thành công, chương trình sẽ hiển thị:
+
+```
+  +==============================================+
+  |   HE THONG XU LY TIN HIEU AM THANH SO      |
+  |        Digital Audio Signal System          |
+  |   C++ OOP Demo - Project 1                  |
+  +==============================================+
+
+  [Các phần demo: tạo tín hiệu, so sánh sóng, lọc, hiệu ứng, v.v.]
+  [Hiển thị waveform, spectrum, thống kê]
+```
+
+---
+
+## 🐛 Xử Lý Sự Cố
+
+### **Lỗi: Command 'g++' not found**
+
+**Giải pháp:**
+
+- Linux: `sudo apt-get install build-essential`
+- MacOS: Cài XCode Command Line Tools
+- Windows: Cài MinGW hoặc MSVC
+
+### **Lỗi: undefined reference to 'sin', 'cos', 'sqrt'**
+
+**Giải pháp:** Thêm flag `-lm` khi biên dịch:
+
+```bash
+g++ -std=c++11 main.cpp -o audio_system -lm
+```
+
+### **Lỗi: Header files not found**
+
+**Giải pháp:** Đảm bảo tất cả file `.h` trong cùng folder với `main.cpp`
+
+### **Chương trình không chạy trên Windows**
+
+**Giải pháp:**
+
+```powershell
+# Chạy với đường dẫn đầy đủ
+.\audio_system.exe
+
+# Hoặc
+python -m audiowin.exe
+```
+
+---
+
+## 🎯 Cách Sử Dụng Chương Trình
+
+Chương trình demo sẽ tự động:
+
+1. **Tạo tín hiệu sin 440 Hz** - Âm La (A4)
+2. **So sánh 4 dạng sóng** - Sine, Square, Triangle, Noise
+3. **Khuyếch đại & Chuẩn hoá** - Xử lý biên độ
+4. **Áp dụng bộ lọc** - Low-Pass, High-Pass, Band-Pass
+5. **Thêm hiệu ứng** - Echo, Reverb
+6. **Hiển thị thống kê** - Min, Max, Mean, Variance, RMS, dBFS
+
+---
+
+## 📝 Ghi Chú Khi Chạy
+
+- Chương trình chạy hoàn toàn text-based (không cần GUI)
+- Tất cả output hiển thị trên terminal/console
+- Thời gian chạy: ~2-3 giây (tùy máy tính)
+- Không tạo file output (chỉ demo text)
+- Có thể redirect output sang file: `./audio_system > output.txt`
+
+---
+
+## �📁 Cấu Trúc File
 
 ```
 Project1/
